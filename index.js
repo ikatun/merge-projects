@@ -4,8 +4,9 @@ const fs = require('fs');
 const merge = require('package-merge');
 const fsExtra = require('fs-extra');
 
-const sourceProject = process.argv[2];
-const destProject = process.argv[3];
+const [ignore1, ignore2, sourceProject, destProject, ...options] = process.argv;
+
+const justPackageJson = options.includes('--just-package-json');
 
 if (!sourceProject || !destProject) {
 	throw new Error('Usage: merge-projects <source> <destination>');
@@ -17,6 +18,10 @@ let destProjectPackageJson = fs.readFileSync(path.join(destProject, 'package.jso
 destProjectPackageJson = merge(sourceProjectPackageJson, destProjectPackageJson);
 fs.writeFileSync(path.join(destProject, 'package.json'), destProjectPackageJson, { encoding: 'utf8' });
 console.log('DONE\n');
+
+if (justPackageJson) {
+	process.exit(0);
+}
 
 function mergeFiles(srcDir, dstDir, fileName) {
 	try {
