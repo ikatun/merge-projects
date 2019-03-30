@@ -9,7 +9,7 @@ const [ignore1, ignore2, sourceProject, destProject, ...options] = process.argv;
 const justPackageJson = options.includes('--just-package-json');
 
 if (!sourceProject || !destProject) {
-	throw new Error('Usage: merge-projects <source> <destination>');
+	throw new Error('Usage: merge-projects <source> <destination> [--just-package-json]');
 }
 
 console.log('merging package.json...');
