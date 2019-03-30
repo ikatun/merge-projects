@@ -46,7 +46,8 @@ function filter(src, dst) {
 		src.includes('node_modules') ||
 		src.endsWith('.env') ||
 		src.endsWith('.git') ||
-		src.endsWith('.gitignore')
+		src.endsWith('.gitignore') ||
+		src.endsWith('package.json')
 	);
 }
 fsExtra.copySync(sourceProject, destProject, { filter, overwrite: true });
