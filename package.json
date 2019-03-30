@@ -1,0 +1,24 @@
+{
+  "name": "merge-projects",
+  "version": "0.0.1",
+  "description": "A CLI tool to merge two npm projects into one",
+  "main": "index.js",
+  "bin": {
+    "merge-projects": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "merge",
+    "npm",
+    "projects"
+  ],
+  "author": "Ivo Katunaric",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^7.0.1",
+    "merge-dirs": "^0.2.1",
+    "package-merge": "^0.1.2"
+  }
+}
